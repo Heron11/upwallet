@@ -180,17 +180,20 @@
 
 /* Token Stats */
 .token-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 12px;
 }
 
 .stat-item {
-  padding: 16px;
+  padding: 16px 12px;
   background: #f8f9fa;
   border: 1px solid #e9ecef;
   border-radius: 12px;
   text-align: center;
+  flex: 1;
+  max-width: 80px;
 }
 
 .stat-label {

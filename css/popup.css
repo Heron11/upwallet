@@ -18,6 +18,17 @@ body {
   position: relative;
 }
 
+/* Conditional visibility for authenticated state */
+body:not(.authenticated) .header-bar,
+body:not(.authenticated) .menu-bar {
+  display: none;
+}
+
+body:not(.authenticated) .main-content {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
 /* Purple circle decorations */
 .purple-circle-large {
   position: absolute;

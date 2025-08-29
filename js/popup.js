@@ -4,9 +4,27 @@ class PopupController {
     this.init();
   }
 
-  init() {
+  async init() {
+    await this.checkAuthState();
     this.createPages();
     this.setupEventListeners();
+  }
+
+  async checkAuthState() {
+    try {
+      const data = await chrome.storage.local.get(['isAuthenticated']);
+      console.log('Auth state data:', data);
+      if (data.isAuthenticated) {
+        document.body.classList.add('authenticated');
+        console.log('User is authenticated');
+      } else {
+        document.body.classList.remove('authenticated');
+        console.log('User is not authenticated - showing signin page');
+      }
+    } catch (error) {
+      console.error('Error checking auth state:', error);
+      document.body.classList.remove('authenticated');
+    }
   }
 
   createPages() {
@@ -18,6 +36,7 @@ class PopupController {
     this.createPageContainer('recent', mainContent);
     this.createPageContainer('settings', mainContent);
     this.createPageContainer('token-details', mainContent);
+    this.createPageContainer('signin', mainContent);
     
     // Load content from separate HTML files
     this.loadPageContent('portfolio');
@@ -25,6 +44,54 @@ class PopupController {
     this.loadPageContent('recent');
     this.loadPageContent('settings');
     this.loadPageContent('token-details');
+    this.loadPageContent('signin');
+    
+    // Show appropriate page based on auth state (with delay to ensure content is loaded)
+    setTimeout(() => {
+      this.showInitialPage();
+    }, 100);
+  }
+
+  showInitialPage() {
+    const isAuthenticated = document.body.classList.contains('authenticated');
+    console.log('Showing initial page, authenticated:', isAuthenticated);
+    if (isAuthenticated) {
+      this.showPage('portfolio');
+    } else {
+      this.showPage('signin');
+    }
+    
+    // Fallback: if no page is active, show signin
+    setTimeout(() => {
+      const activePage = document.querySelector('.page.active');
+      if (!activePage) {
+        console.log('No active page found, showing signin as fallback');
+        this.showPage('signin');
+      }
+    }, 200);
+  }
+
+  showPage(pageName) {
+    // Hide all pages
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+
+    // Show selected page
+    const targetPage = document.getElementById(`${pageName}-page`);
+    if (targetPage) {
+      targetPage.classList.add('active');
+    }
+
+    // Update menu active state (only for authenticated pages)
+    if (pageName !== 'signin') {
+      const menuItems = document.querySelectorAll('.menu-item');
+      menuItems.forEach(item => item.classList.remove('active'));
+      
+      const activeMenuItem = document.querySelector(`[data-page="${pageName}"]`);
+      if (activeMenuItem) {
+        activeMenuItem.classList.add('active');
+      }
+    }
   }
 
   createPageContainer(pageName, container) {
@@ -68,6 +135,11 @@ class PopupController {
       // Trigger token details rendering after content is loaded
       if (pageName === 'token-details') {
         document.dispatchEvent(new CustomEvent('tokenDetailsContentLoaded'));
+      }
+      
+      // Trigger sign in rendering after content is loaded
+      if (pageName === 'signin') {
+        document.dispatchEvent(new CustomEvent('signinContentLoaded'));
       }
 
     } catch (error) {
