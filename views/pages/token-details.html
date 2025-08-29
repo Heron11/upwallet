@@ -1,0 +1,90 @@
+<!-- Token Details Page Template -->
+<div class="token-details-page">
+  <!-- Back Button -->
+  <div class="back-button-container">
+    <button class="back-button" id="back-to-portfolio">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+      </svg>
+      <span>Back</span>
+    </button>
+  </div>
+
+  <!-- Token Header -->
+  <div class="crypto-item" data-id="bitcoin">
+    <div class="crypto-info">
+      <div class="crypto-icon">
+        <img src="../assets/currencies/btcIcon.png" alt="BTC" width="32" height="32">
+      </div>
+      <div class="crypto-details">
+        <div class="crypto-symbol">BTC</div>
+        <div class="crypto-full-name">Bitcoin</div>
+      </div>
+    </div>
+    <div class="crypto-value-section">
+      <div class="crypto-dollar-value">$52,758.12</div>
+      <div class="crypto-token-balance">+2.5%</div>
+    </div>
+  </div>
+
+  <!-- Token Chart -->
+  <div class="token-chart-section">
+    <div class="chart-container">
+      <canvas id="token-chart"></canvas>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <div class="action-button">
+      <div class="button-icon" style="background: #5a029f;">
+        <span>+</span>
+      </div>
+      <div class="button-label">Buy</div>
+    </div>
+    <div class="action-button">
+      <div class="button-icon" style="background: #5a029f;">
+        <span>−</span>
+      </div>
+      <div class="button-label">Sell</div>
+    </div>
+    <div class="action-button">
+      <div class="button-icon" style="background: #5a029f;">
+        <span>↑</span>
+      </div>
+      <div class="button-label">Send</div>
+    </div>
+    <div class="action-button">
+      <div class="button-icon" style="background: #5a029f;">
+        <span>↓</span>
+      </div>
+      <div class="button-label">Receive</div>
+    </div>
+  </div>
+
+  <!-- Token Stats -->
+  <div class="token-stats">
+    <div class="stat-item">
+      <div class="stat-label">24h Change</div>
+      <div class="stat-value positive">+2.5%</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Market Cap</div>
+      <div class="stat-value">$1.02T</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">24h Volume</div>
+      <div class="stat-value">$28.5B</div>
+    </div>
+  </div>
+
+  <!-- Recent Transactions -->
+  <div class="recent-transactions">
+    <div class="section-header">
+      <h3>Recent Transactions</h3>
+    </div>
+    <div class="transactions-list">
+      <!-- Transaction items will be dynamically rendered here -->
+    </div>
+  </div>
+</div>

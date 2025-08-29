@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "UP Wallet",
+  "version": "1.0.0",
+  "description": "A non-custodial cryptocurrency wallet using Web3Auth MPC infrastructure for secure key management",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "https://*.web3auth.io/*",
+    "https://*.moonpay.com/*",
+    "https://*.jup.ag/*",
+    "https://*.solana.com/*",
+    "https://*.ethereum.org/*",
+    "https://*.bitcoin.org/*"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_popup": "views/popup.html",
+    "default_title": "UP Wallet",
+    "default_icon": {
+      "16": "UpLogoWhite.png",
+      "32": "UpLogoWhite.png",
+      "48": "UpLogoWhite.png",
+      "128": "UpLogoWhite.png"
+    }
+  },
+  "icons": {
+    "16": "UpLogoWhite.png",
+    "32": "UpLogoWhite.png",
+    "48": "UpLogoWhite.png",
+    "128": "UpLogoWhite.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"],
+      "css": ["css/content.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*",
+        "icons/*",
+        "views/*",
+        "UpLogoWhite.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}
+

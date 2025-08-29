@@ -1,0 +1,184 @@
+/* UP Crypto Exchange Content Script Styles */
+
+/* Ensure the widget appears above other elements */
+#up-crypto-widget {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 300px !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+  z-index: 2147483647 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  color: white !important;
+  padding: 16px !important;
+  display: none;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Widget header */
+#up-crypto-widget h3 {
+  margin: 0 !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: white !important;
+}
+
+/* Close button */
+#up-widget-close {
+  background: none !important;
+  border: none !important;
+  color: white !important;
+  cursor: pointer !important;
+  font-size: 18px !important;
+  padding: 0 !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  transition: background-color 0.2s ease !important;
+}
+
+#up-widget-close:hover {
+  background: rgba(255,255,255,0.1) !important;
+}
+
+/* Buttons */
+#up-crypto-widget button {
+  background: rgba(255,255,255,0.2) !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  color: white !important;
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  transition: all 0.2s ease !important;
+}
+
+#up-crypto-widget button:hover {
+  background: rgba(255,255,255,0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+#up-crypto-widget button:active {
+  transform: translateY(0) !important;
+}
+
+/* Form elements */
+#up-crypto-widget select,
+#up-crypto-widget input {
+  width: 100% !important;
+  padding: 8px !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  background: rgba(255,255,255,0.1) !important;
+  color: white !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  box-sizing: border-box !important;
+}
+
+#up-crypto-widget select:focus,
+#up-crypto-widget input:focus {
+  outline: none !important;
+  border-color: rgba(255,255,255,0.5) !important;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.1) !important;
+}
+
+#up-crypto-widget select option {
+  background: #2a2a2a !important;
+  color: white !important;
+}
+
+/* Text elements */
+#up-crypto-widget p {
+  margin: 0 0 12px 0 !important;
+  font-size: 14px !important;
+  opacity: 0.9 !important;
+}
+
+#up-crypto-widget div[style*="font-size: 12px"] {
+  font-size: 12px !important;
+  opacity: 0.8 !important;
+  margin-bottom: 4px !important;
+}
+
+#up-crypto-widget div[style*="font-size: 11px"] {
+  font-size: 11px !important;
+  word-break: break-all !important;
+  margin-bottom: 8px !important;
+}
+
+#up-crypto-widget div[style*="font-size: 14px"] {
+  font-size: 14px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Layout utilities */
+#up-crypto-widget .flex {
+  display: flex !important;
+}
+
+#up-crypto-widget .gap-8 {
+  gap: 8px !important;
+}
+
+#up-crypto-widget .flex-1 {
+  flex: 1 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #up-crypto-widget {
+    width: calc(100vw - 40px) !important;
+    right: 20px !important;
+    left: 20px !important;
+  }
+}
+
+/* Animation for widget appearance */
+@keyframes up-widget-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#up-crypto-widget[style*="display: block"] {
+  animation: up-widget-slide-in 0.3s ease-out;
+}
+
+/* Loading states */
+#up-crypto-widget .loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+#up-crypto-widget .loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

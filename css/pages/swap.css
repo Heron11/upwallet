@@ -1,0 +1,283 @@
+/* Swap Page Styles */
+.swap-page {
+  padding: 8px 12px 80px 12px; /* Reduced top padding, keep bottom buffer for menu bar */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+/* Swap Header */
+.swap-header {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.swap-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+
+.swap-header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Swap Interface */
+.swap-interface {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* Swap Input Container */
+.swap-input-container {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.swap-input-container:hover {
+  border-color: #5a029f;
+}
+
+/* Swap Input Header */
+.swap-input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.swap-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.swap-balance {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Swap Input */
+.swap-input {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Token Selector */
+.token-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.token-selector:hover {
+  border-color: #5a029f;
+  background: #f8f9fa;
+}
+
+.token-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.token-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.token-symbol {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.token-name {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.token-arrow {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Amount Input */
+.amount-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 20px;
+  transition: border-color 0.2s ease;
+  overflow: hidden;
+}
+
+.amount-input:hover {
+  border-color: #5a029f;
+}
+
+.amount-input input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-color);
+  outline: none;
+  padding: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.amount-input input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.max-button {
+  background: white;
+  color: #5a029f;
+  border: 1px solid #5a029f;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.max-button:hover {
+  background: #5a029f;
+  color: white;
+}
+
+/* Swap Arrow Container */
+.swap-arrow-container {
+  display: flex;
+  justify-content: center;
+  margin: -8px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.swap-arrow-button {
+  width: 40px;
+  height: 40px;
+  background: #5a029f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: rotate(0deg);
+}
+
+.swap-arrow-button.rotated {
+  transform: rotate(180deg);
+}
+
+.swap-arrow-button:hover {
+  background: #4a0280;
+  transform: scale(1.05) rotate(0deg);
+}
+
+.swap-arrow-button.rotated:hover {
+  transform: scale(1.05) rotate(180deg);
+}
+
+/* Swap Details */
+.swap-details {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.swap-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.swap-detail-row:first-child {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.swap-detail-row:not(:first-child) {
+  color: var(--text-secondary);
+}
+
+/* Swap Button */
+.swap-button-container {
+  margin-top: auto;
+  padding-top: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.swap-button {
+  width: 60%;
+  background: #5a029f;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.swap-button:hover {
+  background: #4a0280;
+  transform: translateY(-1px);
+}
+
+
+
+.swap-button:active {
+  transform: translateY(0);
+}
+
